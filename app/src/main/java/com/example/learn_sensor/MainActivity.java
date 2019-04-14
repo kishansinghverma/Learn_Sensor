@@ -22,13 +22,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         data=findViewById(R.id.data);
 
         SensorManager sensorManager=(SensorManager) getSystemService(getApplicationContext().SENSOR_SERVICE);
-        Sensor sensor=sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        Sensor sensor=sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
         String sName=getString(R.string.sensor_name).concat(" "+sensor.getName());
         String sVendor=getString(R.string.sensor_vendor).concat(" "+sensor.getVendor());
 
         name.setText(sName);
         vendor.setText(sVendor);
+
+        sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
 
 
 
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             float y=event.values[1];
             float z=event.values[2];
 
-            data.setText("Time: "+event.timestamp+"    X: "+x+"    Y: "+y+"    Z: "+z);
+            data.setText("Time: "+event.timestamp+"\nX: "+x+"\nY: "+y+"\nZ: "+z);
         }
         catch (Exception e){
             data.setText(e.getMessage());

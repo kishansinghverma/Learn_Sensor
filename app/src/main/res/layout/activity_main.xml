@@ -42,7 +42,7 @@
         android:id="@+id/inf4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="150dp"
         android:layout_marginBottom="424dp"
         android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
